@@ -1,6 +1,16 @@
 <?php  
 include(dirname(__FILE__).'/../../config/config.inc.php');
-include(dirname(__FILE__).'/../../header.php');
+
+if (isset(Context::getContext()->controller)) {
+    $controller = Context::getContext()->controller;
+} else {
+    $controller = new FrontController();
+    $controller->init();
+    $controller->setMedia();
+}
+Tools::displayFileAsDeprecated();
+$controller->displayHeader();
+
 include(dirname(__FILE__).'/cecamodule.php');
 
 if(!function_exists("writeLog")||!function_exists("generateIdLogCECA")) {
