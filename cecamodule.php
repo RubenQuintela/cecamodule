@@ -263,7 +263,7 @@ class cecamodule extends PaymentModule{
 				'Importe'         => $cantidad,
 				'Descripcion'     => $productos,
 				'Firma'           => $signature,
-				'Cifrado'		  => 'SHA1',
+				'Cifrado'		  => 'SHA2',
 				'Pago_soportado'  => 'SSL'
 			));
 			$payment_options = [];
@@ -328,13 +328,18 @@ class cecamodule extends PaymentModule{
 				'Cifrado'=>[
 					'name'=>'Cifrado',
 					'type'=>'hidden',
-					'value'=>'SHA1'
+					'value'=>'SHA2'
 				],
 				'Pago_soportado'=>[
 					'name'=>'Pago_soportado',
 					'type'=>'hidden',
 					'value'=>'SSL'
 				]
+				'Pago_elegido'=>[
+					'name'=>'Pago_elegido',
+					'type'=>'hidden',
+					'value'=>'SSL'
+				]				
 			])
 			->setLogo(_MODULE_DIR_.'cecamodule/views/img/ceca-logo.png')
 			->setModuleName($this->name)
