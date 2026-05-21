@@ -334,7 +334,7 @@ class cecamodule extends PaymentModule{
 					'name'=>'Pago_soportado',
 					'type'=>'hidden',
 					'value'=>'SSL'
-				]
+				],
 				'Pago_elegido'=>[
 					'name'=>'Pago_elegido',
 					'type'=>'hidden',
