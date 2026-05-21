@@ -38,11 +38,11 @@ class CECA{
 				$Importe = $this->vars_pay['Importe'];
 				$tipomoneda = $this->vars_pay['TipoMoneda'];
 				$Exponente = '2';
-				$cifrado = 'SHA1';
+				$cifrado = 'SHA2';
 				$URL_OK = $this->vars_pay['URL_OK'];
 				$URL_NOK = $this->vars_pay['URL_NOK'];
 				$string = "$key $MerchantID $AcquirerBIN $TerminalID $Num_operacion $Importe $tipomoneda $Exponente \"\"  "; 
-				$signature = sha1($key.$MerchantID.$AcquirerBIN.$TerminalID.$Num_operacion.$Importe.$tipomoneda.$Exponente.$cifrado.$URL_OK.$URL_NOK);
+                $signature = hash('sha256', $key.$MerchantID.$AcquirerBIN.$TerminalID.$Num_operacion.$Importe.$tipomoneda.$Exponente.$cifrado.$URL_OK.$URL_NOK);								
 				return $signature;
 			}
 
